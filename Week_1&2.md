@@ -17,7 +17,7 @@
       </ul>
 
       <h2 style="text-decoration: underline;">Installation of packages</h1>
-        <ul>
+       <ul>
             <li>Install git,vim,gtypist by the following command on terminal: <br><span style="font-family: monospace;"> apt install PackageName</span> </li>
             <li><span style="font-family: monospace;">apt update PackageName</span> updates the package index. </li>
             <li><span style="font-family: monospace;">apt upgrade PackageName</span> installs the package to latest version. </li>
