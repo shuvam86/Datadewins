@@ -25,7 +25,7 @@
             <li><span style="font-family: monospace;">apt purge PackageName</span> removes the package with its configurations. </li>
         </ul>
 
-    <h2 style="text-decoration: underline;">User management</h2>    
+    <!-- <h2 style="text-decoration: underline;">User management</h2>    
     <ul>
         <li><span style="font-family: monospace;">sudo useradd NameOfUser</span> adds a new user to the directory. </li>
         <br>
@@ -34,7 +34,7 @@
         <br>
         <img src="/12/Capture1.JPG" height="400px" width="800px">
         <li><span>userdel -r UserName</span> will delete the user. </li>
-    </ul>
+    </ul> -->
 
 </body>
 </html>
