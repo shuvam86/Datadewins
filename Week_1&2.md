@@ -16,7 +16,7 @@
         <li><span style="text-decoration: underline; font-weight: bold;">Step-5:</span> Install the Operating system.</li>
       </ul>
 
-      <h2 style="text-decoration: underline;">Installation of packages</h1>
+      <h2 style="text-decoration: underline;">Installation of packages</h2>
         <ul>
             <li>Install git,vim,gtypist by the following command on terminal: <br><span style="font-family: monospace;"> apt install PackageName</span> </li>
             <li><span style="font-family: monospace;">apt update PackageName</span> updates the package index. </li>
@@ -29,10 +29,10 @@
     <ul>
         <li><span style="font-family: monospace;">sudo useradd NameOfUser</span> adds a new user to the directory. </li>
         <br>
-        <!-- <img src="/12/Capture.JPG" height="100px" width="800px"> -->
+        <img src="/12/Capture.JPG" height="100px" width="800px">
         <li><span style="font-family: monospace;">awk -F':' '{ print $1}' /etc/passwd</span> will show the list of all the users. </li>
         <br>
-        <!-- <img src="/12/Capture1.JPG" height="400px" width="800px"> -->
+        <img src="/12/Capture1.JPG" height="400px" width="800px">
         <li><span>userdel -r UserName</span> will delete the user. </li>
     </ul>
 
