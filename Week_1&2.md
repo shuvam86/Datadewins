@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,7 +15,14 @@
         <li><span style="text-decoration: underline; font-weight: bold;">Step-5:</span> Install the Operating system.</li>
       </ul>
 
-    
+      <h2 style="text-decoration: underline;">Installation of packages</h2>
+        <ul>
+            <li>Install git,vim,gtypist by the following command on terminal: <br><span style="font-family: monospace;"> apt install PackageName</span> </li>
+            <li><span style="font-family: monospace;">apt update PackageName</span> updates the package index. </li>
+            <li><span style="font-family: monospace;">apt upgrade PackageName</span> installs the package to latest version. </li>
+            <li><span style="font-family: monospace;">apt remove PackageName</span> removes the package leaving its configurations. </li>
+            <li><span style="font-family: monospace;">apt purge PackageName</span> removes the package with its configurations. </li>
+        </ul>
 
     <h2 style="text-decoration: underline;">User management</h2>    
     <ul>
