@@ -1,1 +1,1 @@
-# Datadewins
+# Datadewins weekly assignments
