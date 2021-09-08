@@ -8,28 +8,87 @@
     img {
         border: 3px solid blue;
     }
+    h2 {
+        text-decoration: underline;
+    }
     </style>
 </head>
-<body>
+<body >
     <h1 style="text-decoration: underline;text-align: center;">Week 3 & 4 assignment</h1>
-    <h2 style="text-decoration: underline;">Making directory</h2>
+    <h2>Making directory</h2>
     <ul>
         <li><span style="font-family: monospace;">mkdir NameOfDirectory</span> will create a directory. </li>
         
-        <img src="images/Capture5.JPG" height="60px" width="600px">
+        <img src="/images/Capture5.JPG" height="60px" width="600px">
         <br> <br>
         <li>Type <span style="font-family: monospace;">ls</span> to view all the directories and files. </li>
         
-        <img src="images/Capture6.JPG" height="60px" width="600px">
+        <img src="/images/Capture6.JPG" height="60px" width="600px">
         <br> <br>
 
         <li>Use touch command to create a file. </li>
 
         <li>Use <span style="font-family: monospace;"> cat >> NameofTextFile.txt</span> to write something in file. </li>
-        <img src="images/Capture7.JPG" height="100px" width="600px"> <br> <br>
+        <img src="/images/Capture7.JPG" height="100px" width="600px"> <br> <br>
 
         <li>Use <span style="font-family: monospace;"> cat NameofTextFile.txt</span> to view the contents of the file.</li>
-        <img src="images/Capture8.JPG" height="100px" width="600px"> <br> <br>
-    </ul> 
-</body>
-</html>
+        <img src="/images/Capture8.JPG" height="100px" width="600px"> <br> <br>
+    </ul>
+    <h2>Enhancing bash script</h2>
+    <ul>
+        <li>Checking if ~/data/packages.list exists</li> 
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+            tmp=$(find ~/data -type f -name packages.list)
+            if [[ -z $tmp ]]; then
+                echo "packages.list not found"
+                exit
+            fi
+            echo $tmp
+            while IFS= read -r line; do 
+                apt install $line;
+                echo 'Installed '$line; 
+            done &lt; $tmp
+            </code></pre></div></div>
+    
+        <li>Checking if ~/data/users.list exists </li>    
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+            tmp=$(find ~/data -type f -name users.list)
+            if [[ -z $tmp ]]; then
+                echo "users.list not found"
+                exit
+            fi
+            echo $tmp
+            while IFS= read -r line; do
+	            flag=$(grep -c '^$line' /etc/passwd)
+	            if [[ $flag -ne 0 ]]
+       	        then
+		            echo $line' exists'
+	            else
+		            useradd -m $line
+	            fi
+            done < $tmp
+            </code></pre></div></div>
+
+            <li>Checking if first argument is help. </li>    
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+            if [[ $1 == "help" ]]; then
+            	echo "Help for "$0
+	            echo "Script that adds users and packages according to data folder"
+            fi
+            </code></pre></div></div>
+
+            <li>Checking if first argument is suid_audit. </li>    
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+            if [[ $1 == "help" ]]; then
+	            echo "Help for "$0
+	            echo "Script that adds users and packages according to data folder"
+            elif [[ $1 == "suid_audit" ]]; then
+	            echo $PATH
+	            echo -n > ~/tmp/suid_audit.txt
+	            for path in ${PATH//:/ }; do
+		            echo "Finding files with suid permission in $path"
+		            find $path -type f -perm -u=s >> ~/tmp/suid_audit.txt
+	            done
+            fi
+            </code></pre></div></div>
+
